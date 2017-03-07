@@ -10,7 +10,6 @@ class Welcome extends CI_Controller {
 	}
 
 	public function geraPlanilha(){
-    	##e#cho BASEPATH; DIE;
 		$this->load->library('PHPExcel');
 		$arquivo = './uploads/relatorio.xlsx';
 		$planilha = $this->phpexcel;
@@ -28,7 +27,7 @@ class Welcome extends CI_Controller {
 		foreach( $registros as $linha ):
 			$c++;
 			$planilha->setActiveSheetIndex(0)->setCellValue( 'A' . $c, $linha['nome'] );
-			$planilha->setActiveSheetIndex(0)->setCellValue( 'A' . $c, $linha['email'] );
+			$planilha->setActiveSheetIndex(0)->setCellValue( 'B' . $c, $linha['email'] );
 		endforeach;
 
 		$planilha->getActiveSheet()->setTitle('Planilha 1');
